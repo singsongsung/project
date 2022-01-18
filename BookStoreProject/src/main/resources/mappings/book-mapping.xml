@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BookDAO">
+<!-- 출력해줄 게시판 용의 설정파일  
+쿼리문을 자바 파일에 하는 게 아니라 외부의 설정 파일로 관리
+-->
+
+	
+	<insert id="insertBook">
+      <![CDATA[
+         insert into book(bookNum, bookTitle, bookWriter, bookPublisher,bookGenre,bookPrice ,bookContent, bookFile) 
+         values((select nvl(max(bookNum),0)+1 from book),#{bookTitle},#{bookWriter},#{bookPublisher},#{bookGenre},#{bookPrice},#{bookContent},#{bookFile})
+      ]]>   
+   </insert>
+	
+	<select id="getBookList_T" resultType="book">
+	<![CDATA[
+			select * from 
+			(select rownum rnum, bookNum, bookTitle, bookWriter, bookPublisher, bookGenre,bookPrice,bookContent,bookFile from
+			(select * from book where bookTitle like '%'||#{searchKeyword}||'%' 
+			order by bookNum desc))
+			where rnum between #{start} and #{end}
+	]]>
+	</select>
+	
+	<select id="getBookList_C" resultType="book">
+	<![CDATA[
+			select * from 
+			(select rownum rnum, bookNum, bookTitle, bookWriter, bookPublisher, bookGenre,bookPrice,bookContent,bookFile from
+			(select * from book where bookContent like '%'||#{searchKeyword}||'%' 
+			order by bookNum desc))
+			where rnum between #{start} and #{end}
+	]]>
+	
+	</select>
+	
+	<select id="getBookList_W" resultType="book">
+	<![CDATA[
+select * from 
+			(select rownum rnum, bookNum, bookTitle, bookWriter, bookPublisher, bookGenre,bookPrice,bookContent,bookFile from
+			(select * from book where bookWriter like '%'||#{searchKeyword}||'%' 
+			order by bookNum desc))
+			where rnum between #{start} and #{end}
+	]]>
+	
+	</select>
+	
+	
+	<select id="getBook" resultType="book">
+	<![CDATA[
+		select * from book where bookNum=#{bookNum}
+	]]>
+	</select>
+	
+	<update id="readCountUpdate">
+	<![CDATA[
+		update book set bookReadCount = bookReadCount+1 where bookNum = #{bookNum}
+	]]>
+	</update>
+	
+	<select id="countBook" resultType="int">
+	<![CDATA[
+		select count(*) from book
+	]]>
+	</select>
+	
+	<update id="updateBook">
+	<![CDATA[
+		update book set bookTitle=#{bookTitle},bookWriter=#{bookWriter},bookPublisher=#{bookPublisher},bookGenre=#{bookGenre},bookPrice=#{bookPrice}, bookContent=#{bookContent} where bookNum=#{bookNum}
+	]]>
+	</update>
+	
+	<delete id="deleteBook">
+	<![CDATA[
+		delete from book where bookNum=#{bookNum}
+	]]>
+	</delete>
+	
+	<select id="topBook" resultType="book">
+   <![CDATA[
+      select * from (select rownum rnum, bookNum, bookFile, bookTitle, bookReadCount, bookWriter from(select * from book order by bookReadCount desc))where rnum<=#{rnum}
+   ]]>
+   </select>
+   <select id="newBook" resultType="book">
+   <![CDATA[
+      select * from (select rownum rnum, bookNum, bookFile, bookTitle, bookWriter from(select * from book order by bookNum desc))where rnum<=#{rnum}
+   ]]>
+   </select>
+</mapper>

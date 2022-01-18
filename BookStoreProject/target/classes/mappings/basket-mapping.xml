@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BasketDAO">
+<!-- 출력해줄 게시판 용의 설정파일  
+쿼리문을 자바 파일에 하는 게 아니라 외부의 설정 파일로 관리
+-->
+
+	
+	<insert id="insertBasket">
+      <![CDATA[
+         insert into basket(basketNum, basketBookTitle, basketBookWriter,basketBookAmount,basketBookPrice ,basketBookFile, bookNum) 
+         values((select nvl(max(basketNum),0)+1 from basket),#{basketBookTitle},#{basketBookWriter},#{basketBookAmount},#{basketBookPrice},#{basketBookFile},#{bookNum})
+      ]]>   
+   </insert>
+	
+	<select id="getBasketList" resultType="basket">
+	<![CDATA[
+		select * from basket order by basketNum desc
+	]]>
+	</select>
+	
+	
+	<select id="getBasket" resultType="basket">
+	<![CDATA[
+		select * from basket where basketNum=#{basketNum}
+	]]>
+	</select>
+	
+	<select id="buyBasket" resultType="basket">
+	<![CDATA[
+		select * from basket where basketNum=#{basketNum}
+	]]>
+	</select>
+	
+	<select id="countBasket" resultType="int">
+   <![CDATA[
+      select count (*) from basket where bookNum=#{bookNum}
+   ]]>
+   </select>
+	
+	<update id="updateBasket">
+	<![CDATA[
+		update basket set basketBookAmount=#{basketBookAmount} where basketNum=#{basketNum}
+	]]>
+	</update>
+	
+
+	
+	<update id="changeBasket">
+	<![CDATA[
+		update basket set basketBookAmount=basketBookAmount+#{basketBookAmount} where bookNum=#{bookNum}
+	]]>
+	</update>
+	
+	<delete id="deleteBasket">
+	<![CDATA[
+		delete from basket where basketNum=#{basketNum}
+	]]>
+	</delete>
+	
+
+</mapper>

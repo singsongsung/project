@@ -1,0 +1,139 @@
+.wrapper .content_wrap .content_inner .mainVisual {
+  width: 100%;
+  height: 400px;
+  background-color: #333;
+  overflow: hidden;
+  position: relative;
+}
+
+.wrapper .content_wrap .content_inner .mainVisual .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper .content_wrap .content_inner .mainVisual .swiper-wrapper .swiper-slide {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.wrapper .content_wrap .content_inner .mainVisual .swiper-wrapper .swiper-slide::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  background: -webkit-gradient(linear, right top, left top, color-stop(32%, rgba(255, 255, 255, 0.767945)), to(rgba(9, 9, 121, 0)));
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.767945) 32%, rgba(9, 9, 121, 0) 100%);
+}
+
+.wrapper .content_wrap .content_inner .mainVisual .swiper-wrapper .swiper-slide.visual01 {
+  background: url("../image/swiper1.jpg") no-repeat center center;
+  background-color: chocolate;
+}
+
+.wrapper .content_wrap .content_inner .mainVisual .swiper-wrapper .swiper-slide.visual02 {
+  background: url("../image/swiper2.jpg") no-repeat center center;
+  background-color: darkcyan;
+}
+
+.wrapper .content_wrap .content_inner .mainVisual .swiper-wrapper .swiper-slide.visual03 {
+  background: url("../image/swiper3.jpg") no-repeat center center;
+  background-color: darkslateblue;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container {
+  width: 100%;
+  margin: 20px 0;
+  overflow: hidden;
+  display: block;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_con_title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 3px solid #3E7C17;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_con_title > h2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper {
+  width: 1220px;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper .book_con_list {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper .book_con_list .book_wrapper {
+  width: calc(100% / 4);
+  border: 3px solid transparent;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper .book_con_list .book_wrapper .book_container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper .book_con_list .book_wrapper .book_container .book_img {
+  width: 200px;
+  height: 300px;
+  background-color: #fff;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: auto;
+  border: 2px solid #E8E1D9;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper .book_con_list .book_wrapper .book_container .book_title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper .book_con_list .book_wrapper .book_container .book_writer {
+  color: #BDBDBD;
+}
+
+.wrapper .content_wrap .content_inner .bookList_container .book_swiper .book_con_list .book_wrapper:hover {
+  border: 3px solid #E8E1D9;
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+
+	<insert id="insertBoard">
+	<![CDATA[
+		insert into springboard(seq, title, writer, content, boardReplyRef, boardReplyLev, boardReplySeq) 
+		values((select nvl(max(seq),0)+1 from springboard),#{title},#{writer},#{content},#{boardReplyRef},#{boardReplyLev},#{boardReplySeq})
+	]]>
+	</insert>	
+	
+	<select id="getBoardList_T" resultType="board">
+	<![CDATA[
+		select * from springboard where title like '%'||#{searchKeyword}||'%' 
+		order by seq desc
+	]]>
+	</select>
+	
+	<select id="getBoardList_C" resultType="board">
+	<![CDATA[
+		select * from springboard where content like '%'||#{searchKeyword}||'%' 
+		order by seq desc
+	]]>
+	</select>
+	
+	<select id="getBoard" resultType="board">
+	<![CDATA[
+		select * from springboard where seq=#{seq}
+	]]>
+	</select>
+	
+	<update id="updateBoard">
+	<![CDATA[
+		update springboard set title=#{title}, content=#{content} where seq=#{seq}
+	]]>
+	</update>
+	
+	<delete id="deleteBoard">
+	<![CDATA[
+		delete from springboard where seq=#{seq}
+	]]>
+	</delete>
+	
+	<!-- 조회수 증가 -->
+    <update id="viewCount" >
+       <![CDATA[ 
+       update springboard set cnt = cnt+1 where seq = #{seq}
+        ]]>
+    </update>
+    
+    <!-- 총 게시글 개수  --> 
+    <select id="countboard" resultType="int" >
+ 	   <![CDATA[
+    	select count(*) from springboard
+    	]]>
+    </select> 
+    
+    
+    <!-- 페이징 처리 -->
+    <select id="selectBoard" resultType="board">
+    	<![CDATA[
+    	select * from (
+    			select rownum rn, a.*
+    			 from(
+    		    select * from springboard
+    			order by seq desc)a
+    				 )
+    	where rn between #{start} and #{end}
+    	]]>
+    </select>
+
+    
+</mapper>

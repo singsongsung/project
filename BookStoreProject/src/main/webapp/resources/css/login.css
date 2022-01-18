@@ -1,0 +1,95 @@
+.wrapper .content_wrap .content_inner {
+  width: 100%;
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper .content_wrap .content_inner .login_table {
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 20px 20px;
+}
+
+.wrapper .content_wrap .content_inner .login_table .login_title {
+  font-size: 20pt;
+  font-weight: 700;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.wrapper .content_wrap .content_inner .login_table .login_middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.wrapper .content_wrap .content_inner .login_table .login_middle .middle_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wrapper .content_wrap .content_inner .login_table .login_middle .middle_left > label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 3px;
+}
+
+.wrapper .content_wrap .content_inner .login_table .login_middle .middle_left > label span {
+  width: 80px;
+}
+
+.wrapper .content_wrap .content_inner .login_table .input_box {
+  border: inherit;
+  border-bottom: 1px solid #333;
+  margin-left: 10px;
+}
+
+.wrapper .content_wrap .content_inner .login_table .login_btn {
+  background: inherit;
+  border: inherit;
+  background-color: #3E7C17;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 15px;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+  cursor: pointer;
+}
+
+.wrapper .content_wrap .content_inner .login_table .login_btn:hover {
+  background-color: #153011;
+}
+
+.wrapper .content_wrap .content_inner .login_table .join_btn {
+  background: inherit;
+  border: inherit;
+  cursor: pointer;
+  margin-left: 80px;
+  -webkit-transition: 0.24s ease-out;
+  transition: 0.24s ease-out;
+}
+
+.wrapper .content_wrap .content_inner .login_table .join_btn:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDAO">
+<!-- 출력해줄 게시판 용의 설정파일  
+쿼리문을 자바 파일에 하는 게 아니라 외부의 설정 파일로 관리
+-->
+	<select id="login" resultType="user">
+	<![CDATA[
+		select * from users where id=#{id}
+	]]>
+	</select>
+	
+	<insert id="insertUser">
+		<![CDATA[
+			insert into users (id, password, name, email, address, phoneNum, role) 
+				values( #{id},#{password},#{name},#{email},#{address},#{phoneNum}, 0)
+		]]>	
+	</insert>
+	
+	
+<!-- 	마이페이지 관련
+
+
+	<select id="getUser" resultType="user" >
+		<![CDATA[
+			select * from users
+		]]>	
+	</select>
+
+	
+	<select id="getUserList" resultType="user" >
+		<![CDATA[
+			select * from users where id=#{id}
+		]]>	
+	</select>
+	
+	
+	<update id="updateUser">
+		<![CDATA[
+		update users set password=#{password}
+							 , email=#{email}
+							 , address=#{address}
+							 , phoneNum=#{phoneNum}
+							 where id=#{id}
+		]]>	
+	</update>
+	
+
+	
+	<delete id="deleteUser">
+		<![CDATA[
+			delete from users where id=#{id}
+		]]>
+	</delete> -->
+	
+	
+</mapper>

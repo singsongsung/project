@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BookReviewDAO">
+
+	
+	<insert id="insertReview">
+      <![CDATA[
+         insert into bookReview(reviewNum, bookNum, reviewName, reviewContent,reviewScore) 
+         values((select nvl(max(reviewNum),0)+1 from bookReview),#{bookNum},#{reviewName},#{reviewContent},#{reviewScore})
+      ]]>   
+   </insert>
+
+	<select id="reviewList" resultType="review">
+		<![CDATA[
+			select * from
+			(select rownum rnum, reviewNum, bookNum, reviewName, reviewContent,reviewDate,reviewScore from
+			(select * from bookReview where bookNum = #{bookNum}
+			order by reviewNum desc))
+			
+		]]>
+	</select>
+	
+	<update id="updateBook">
+	<![CDATA[
+		update book set bookTitle=#{bookTitle}, bookContent=#{bookContent} where bookNum=#{bookNum}
+	]]>
+	</update>
+	
+	<delete id="deleteReview">
+	<![CDATA[
+		delete from bookReview where reviewNum=#{reviewNum}
+	]]>
+	</delete>
+</mapper>

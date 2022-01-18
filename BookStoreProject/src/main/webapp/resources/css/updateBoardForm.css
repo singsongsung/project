@@ -1,0 +1,122 @@
+.wrapper .content_wrap .content_inner .book_add_container {
+  width: 900px;
+  margin: auto;
+  border: 2px solid #E8E1D9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .inner_title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form {
+  padding: 10px 20px;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .insert_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .insert_container > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .insert_container > div > label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .insert_container > div > label > span {
+  width: 100px;
+  text-align: left;
+  display: inline-block;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .insert_container > div > label > input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 2px solid #E8E1D9;
+  padding: 5px 5px;
+  margin-right: 40px;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .insert_container > div > label > .update_img {
+  width: 400px;
+  height: 500px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .insert_container > div #bookContent {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  resize: none;
+  outline: none;
+  border-color: #E8E1D9;
+  margin-right: 40px;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .button_con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .button_con .book_submit_btn {
+  font-size: 12pt;
+  padding: 10px 20px;
+  background-color: #E8E1D9;
+  border-radius: 10px;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .insert_book_form .button_con .book_submit_btn:hover {
+  background-color: #BDBDBD;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .back {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.wrapper .content_wrap .content_inner .book_add_container .back:hover {
+  color: #3E7C17;
+}
